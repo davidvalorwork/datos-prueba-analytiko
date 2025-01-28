@@ -19,7 +19,6 @@ const bank_codes = [
   { code: '0104', name: 'BANCO VENEZOLANO DE CREDITO' },
   { code: '0168', name: 'BANCRECER' },
   { code: '0134', name: 'BANESCO' },
-  { code: '0177', name: 'BANFANB' },
   { code: '0146', name: 'BANGENTE' },
   { code: '0174', name: 'BANPLUS' },
   { code: '0108', name: 'BBVA PROVINCIAL' },
