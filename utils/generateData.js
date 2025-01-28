@@ -1,4 +1,5 @@
 const { faker } = require('@faker-js/faker');
+const { format } = require('date-fns');
 
 const generateTransfers = (accountsPersons) => {
   let transfers = [];
@@ -13,8 +14,7 @@ const generateTransfers = (accountsPersons) => {
       Codigo_Cuenta_Cliente: accountsPersons[cuentaClienteIndex].account_id,
       Codigo_de_Cuenta_del_Cliente_Contra_parte: accountsPersons[cuentaContraParteIndex].account_id,
       Tipo_de_Transferencia_Electronica: 1,
-      Fecha_de_Transferencia: faker.date.recent().toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })
-        .toString().replace(",", '').replace('pm', 'PM').replace('am', 'AM'),
+      Fecha_de_Transferencia: format(faker.date.recent(), 'dd/MM/yyyy hh:mm a'),
       Referencia_de_Ia_Transferencia: faker.number.int(100000000, 99999999),
       Monto_de_la_Transferencia: faker.number.int(100, 100000),
     });
@@ -113,10 +113,10 @@ const generateAcciones = (alertas) => {
         APELLIDO: alerta.APELLIDO,
         IP: ip,
         ACCION: faker.helpers.arrayElement(actionsTypes),
-        FECHA: faker.date.between({
-          from: '2024-01-01T00:00:00.000Z',
-          to: '2024-06-01T00:00:00.000Z',
-        }).toISOString(),
+        FECHA: format(faker.date.between({
+          from: new Date('2024-01-01T00:00:00.000Z'),
+          to: new Date('2024-06-01T00:00:00.000Z'),
+        }), 'dd/MM/yyyy hh:mm a'),
       };
       acciones.push(accion);
     }

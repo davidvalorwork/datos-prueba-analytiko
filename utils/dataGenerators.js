@@ -33,7 +33,7 @@ const getRandomBankCode = (codes) => {
 
 const getAccounts = () => {
   return {
-    cuenta: getRandomBankCode(bank_codes) + faker.number.bigInt(100000000000000000000, 999999999999999999999).toString().slice(4),
+    cuenta: getRandomBankCode(bank_codes) + faker.number.bigInt(10000000000000000000n, 99999999999999999999n).toString(),
   };
 };
 
