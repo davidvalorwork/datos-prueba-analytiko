@@ -2,7 +2,6 @@ const { faker } = require('@faker-js/faker');
 
 const bank_codes = [
   { code: '0102', name: 'BANCO DE VENEZUELA' },
-  { code: '0156', name: '100% BANCO' },
   { code: '0172', name: 'BANCAMIGA BANCO MICROFINANCIERO C A' },
   { code: '0114', name: 'BANCARIBE' },
   { code: '0171', name: 'BANCO ACTIVO' },
@@ -26,7 +25,6 @@ const bank_codes = [
   { code: '0108', name: 'BBVA PROVINCIAL' },
   { code: '0157', name: 'DELSUR BANCO UNIVERSAL' },
   { code: '0169', name: 'MI BANCO' },
-  { code: '0178', name: 'N58 BANCO DIGITAL BANCO MICROFINANCIERO S A' },
 ];
 
 const getRandomBankCode = (codes) => {
