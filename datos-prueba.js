@@ -8,7 +8,7 @@ const saveMallaForPersons = (mallaData) => {
   mallaData.forEach(({ person, malla }) => {
     XLSX.writeFile(
       createWorkbook(malla, `malla-${person.documento.toString().substring(2, 10)}`),
-      `excels/malla-${person.documento.toString().substring(2, 10)}.xlsx`
+      `excels/malla-${person.documento.toString().substring(2, 10)}-${person.name.split(' ').join('')}.xlsx`
     );
   });
 };

@@ -1,72 +1,72 @@
 const { faker } = require('@faker-js/faker');
 const people = [
   {
-    name: 'Persona Prueba', documento: 'V-27175476',
+    name: 'Persona Prueba', documento: 'V-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Enrique Gonzales', documento: 'V-23444222',
+    name: 'Enrique Gonzales', documento: 'V-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Ramon Cabello', documento: 'V-33444225',
+    name: 'Ramon Cabello', documento: 'V-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Carlos Rondon', documento: 'V-13444226',
+    name: 'Carlos Rondon', documento: 'V-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Javier Moros', documento: 'V-23444227',
+    name: 'Javier Moros', documento: 'V-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Samuel Henriquez', documento: 'V-3444228',
+    name: 'Samuel Henriquez', documento: 'V-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Andres Baute', documento: 'V-4444229',
+    name: 'Andres Baute', documento: 'V-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Ramses Silva', documento: 'V-5444220',
+    name: 'Ramses Silva', documento: 'V-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Anntonnio Di Caprio', documento: 'E-2444220',
+    name: 'Anntonnio Di Caprio', documento: 'E-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Keanu Reves', documento: 'E-3444220',
+    name: 'Keanu Reves', documento: 'E-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Inversiones TecnoSpark', documento: 'J-22444220',
+    name: 'Inversiones TecnoSpark', documento: 'J-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Repuestos Multimarca Tech', documento: 'J-33444220',
+    name: 'Repuestos Multimarca Tech', documento: 'J-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Cristal Clear Water', documento: 'J-66444220',
+    name: 'Cristal Clear Water', documento: 'J-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },
   {
-    name: 'Gruas La Gonzalera', documento: 'J-89444220',
+    name: 'Gruas La Gonzalera', documento: 'J-'+faker.number.int(10000000, 99999990),
     telefono: faker.number.int(100000000000, 999999999999),
     domicilio: faker.location.streetAddress(),
   },

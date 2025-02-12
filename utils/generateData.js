@@ -64,7 +64,7 @@ const generateAlertas = (persons, transfers) => {
         });
       }
     }
-    mallaData.push({ person, malla });
+    mallaData.push({ person, malla: malla.slice(0, 15) });
     alertas.push({
       'TIPO DE PERSONA': person.documento.toString().substring(0, 1),
       IDENTIFICACION: person.documento.toString().substring(2, 10),
