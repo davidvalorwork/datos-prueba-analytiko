@@ -1,4 +1,5 @@
 const XLSX = require('xlsx');
+const fs = require('fs'); // Add this to handle CSV file writing
 const { createWorkbook } = require('./utils/createWorkbook');
 const { getAccounts } = require('./utils/dataGenerators');
 const { generateTransfers, generateAlertas, generateAcciones } = require('./utils/generateData');
@@ -11,6 +12,11 @@ const saveMallaForPersons = (mallaData) => {
       `excels/malla-${person.documento.toString().substring(2, 10)}-${person.name.split(' ').join('')}.xlsx`
     );
   });
+};
+
+const saveAsCSV = (data, filename) => {
+  const csvContent = XLSX.utils.sheet_to_csv(XLSX.utils.json_to_sheet(data));
+  fs.writeFileSync(`excels/${filename}.csv`, csvContent);
 };
 
 (async () => {
@@ -63,13 +69,19 @@ const saveMallaForPersons = (mallaData) => {
     createWorkbook(transfers, 'transfers'),
     'excels/transfers.xlsx'
   );
+  saveAsCSV(transfers, 'transfers'); // Save transfers as CSV
+
   XLSX.writeFile(
     createWorkbook(accountsPersons, 'accounts'),
     'excels/accounts.xlsx'
   );
+  saveAsCSV(accountsPersons, 'accounts'); // Save accounts as CSV
+
   XLSX.writeFile(
     createWorkbook(customers, 'customers'),
     'excels/customers.xlsx'
   );
+  saveAsCSV(customers, 'customers'); // Save customers as CSV
+
   saveMallaForPersons(malla);
 })();
