@@ -3,22 +3,36 @@ const { format } = require('date-fns');
 
 const generateTransfers = (accountsPersons) => {
   let transfers = [];
-  for (let i = 0; i < 2000; i++) {
-    let cuentaClienteIndex = Math.floor(Math.random() * accountsPersons.length);
-    let cuentaContraParteIndex = Math.floor(Math.random() * accountsPersons.length);
+  const accountIds = accountsPersons.map((account) => account.account_id);
 
-    while (cuentaContraParteIndex === cuentaClienteIndex) {
-      cuentaContraParteIndex = Math.floor(Math.random() * accountsPersons.length);
-    }
+  // Ensure each account has at least one transfer
+  for (let i = 0; i < accountIds.length; i++) {
+    let cuentaCliente = accountIds[i];
+    let cuentaContraParte = accountIds[(i + 1) % accountIds.length]; // Connect to the next account in a circular manner
+
     transfers.push({
-      Codigo_Cuenta_Cliente: accountsPersons[cuentaClienteIndex].account_id,
-      Codigo_de_Cuenta_del_Cliente_Contra_parte: accountsPersons[cuentaContraParteIndex].account_id,
+      Codigo_Cuenta_Cliente: cuentaCliente,
+      Codigo_de_Cuenta_del_Cliente_Contra_parte: cuentaContraParte,
       Tipo_de_Transferencia_Electronica: 1,
       Fecha_de_Transferencia: format(faker.date.recent(), 'dd/MM/yyyy hh:mm a'),
       Referencia_de_Ia_Transferencia: faker.number.int(100000000, 99999999),
       Monto_de_la_Transferencia: faker.number.int(100, 100000),
     });
+
+    // Optionally add a second transfer for some accounts
+    if (Math.random() > 0.5) {
+      let anotherCuentaContraParte = accountIds[(i + 2) % accountIds.length];
+      transfers.push({
+        Codigo_Cuenta_Cliente: cuentaCliente,
+        Codigo_de_Cuenta_del_Cliente_Contra_parte: anotherCuentaContraParte,
+        Tipo_de_Transferencia_Electronica: 1,
+        Fecha_de_Transferencia: format(faker.date.recent(), 'dd/MM/yyyy hh:mm a'),
+        Referencia_de_Ia_Transferencia: faker.number.int(100000000, 99999999),
+        Monto_de_la_Transferencia: faker.number.int(100, 100000),
+      });
+    }
   }
+
   return transfers;
 };
 
